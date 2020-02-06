@@ -206,6 +206,7 @@
         if (myHobbies[i] == userHobbies)
         {
           alert('Yei! you found in attempt ' + attempts + '/6 one of my hobbies: ' + userHobbies.toUpperCase());
+          // TODO show here the hobbies also.
           hobbieFound = true;
           userScore++;
           answerMsgDoc = answerMsgDoc + '<br>7. About my hobbies <b>You find one:</b> ' + userHobbies +'!'; 
@@ -213,18 +214,18 @@
         i++;
       }
 
-      // tell the user my hobbies if he is out of attempts
+      // tell the user my hobbies if he is out of attempts. This is the list to shoew ir
       if (attempts===6)
       {
-        for (i = 0; i < myHobbies.length; i++) 
+        for (i = 0; i < myHobbies.length; i++) // to concatenate the hobbies lists.
         {
           if (i+1 === myHobbies.length)
             {
-              myHobbiesList = myHobbiesList + myHobbies[i];  
+              myHobbiesList = myHobbiesList + myHobbies[i];  // to eliminate the last ' , '
             }
           else
           {
-            myHobbiesList = myHobbiesList + myHobbies[i] + ', ' ;
+            myHobbiesList = myHobbiesList + myHobbies[i] + ', ' ; 
           }            
         }
         alert ('Sorry! you didn\'t guessed. This are my hobbies:\n' + myHobbiesList); 
