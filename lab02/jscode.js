@@ -65,6 +65,7 @@
   if (msgValidation!==''){
     msgValidation = 'Oh no! there are some mistakes in the answers:\n' + msgValidation + '\n\nPlease reload the page and try again.'
     alert(msgValidation);
+    // TODO create a function for the next part of the questions
   }
   else{
     // alert the user answers
@@ -142,7 +143,6 @@
       attempts++;
       userNumber = prompt('6. Guess which is my favorite number? (Tip: Is lower than 100)\n Attempt # ' + attempts + '/4');
       
-
       if (isNaN(userNumber))
         {
           alert('Please insert a number.');
@@ -152,6 +152,7 @@
         if (myNumber==userNumber)
           {
             alert ('Wow! you are correct! ' + userNumber + ' is my favorite number! You got it at attempt # ' + attempts);
+            answerMsgDoc = answerMsgDoc + '<br>6. About my favorite number... wow! <b>You guess it</b> at attempt # ' + attempts; 
             userScore++;
           }
         else // the guessed number is incorrect
@@ -174,6 +175,7 @@
               if (attempts===4)
               {
                 alert('Sorry! you did\'t guess, my favorite number is ' + myNumber);
+                answerMsgDoc = answerMsgDoc + '<br>6. About my favorite number... sorry, <b>You didn\'t</b> guess it'; 
               }
           }
         }  //if (isNaN(userNumber)){
@@ -206,6 +208,7 @@
           alert('Yei! you found in attempt ' + attempts + '/6 one of my hobbies: ' + userHobbies.toUpperCase());
           hobbieFound = true;
           userScore++;
+          answerMsgDoc = answerMsgDoc + '<br>7. About my hobbies <b>You find one:</b> ' + userHobbies +'!'; 
         }
         i++;
       }
@@ -225,6 +228,7 @@
           }            
         }
         alert ('Sorry! you didn\'t guessed. This are my hobbies:\n' + myHobbiesList); 
+        answerMsgDoc = answerMsgDoc + '<br>7. About my hobbies <b>You did\'t found one...</b> '; 
       }
       console.log('Attempt: ' + attempts + ' The user guessing hobbie is: ' + userHobbies);
     }
