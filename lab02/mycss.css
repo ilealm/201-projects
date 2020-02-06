@@ -1,0 +1,45 @@
+
+#userAnsw{
+  text-align: left;
+}
+
+ul{
+  font-style: normal;
+  text-align: left;
+}
+
+h5{
+  background-color: lightgrey;
+  font-size: 20px;
+  color:rgb(116, 92, 135);
+  padding: 10px;
+  text-align: left;
+  font-style: normal;
+}
+
+.genInfo{
+  font-style: italic;
+  font-size: 18px;
+  text-align: center;
+  padding-left: 45px;
+  padding-right: 45px;;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img{
+  width:10%;
+  border-radius: 30px;
+  display: inline;
+  padding-left: 20px;
+}
+
+#lblMe{
+  color: rebeccapurple;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+ 
+}

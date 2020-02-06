@@ -1,3 +1,3 @@
 # 201-projects
 
-new project created and now updated from master
+This is the new repository of the Labs
