@@ -13,11 +13,11 @@
   
   // asking 5 questions
   
-  askSoccer = prompt('Do you think I love soccer?\nyes/no');
-  askCats = prompt('What do you thing I would preffer dog over cats?');
-  askTDK = prompt('Do you believe I enjoy TDK matches?');
-  askRun = prompt('Do you think I\'m a long distance runner?');
-  askKids = prompt('Do you believe I have 4 kids?');
+  askSoccer = prompt('1. Do you think I love soccer?\nyes/no');
+  askCats = prompt('2. What do you thing I would preffer dog over cats?');
+  askTDK = prompt('3. Do you believe I enjoy TDK matches?');
+  askRun = prompt('4. Do you think I\'m a long distance runner?');
+  askKids = prompt('5. Do you believe I have 4 kids?');
   
   // console login aswers
   console.log('User name ' + guestName);
@@ -114,10 +114,69 @@
       answerMsgDoc = answerMsgDoc + "<br>About kids, you said <b>NO</b>... Right answer! I have two kids..."; 
     }
   
-    answerMsg = answerMsg + '\n\nThanks for playing '+ guestName;
+    answerMsg = answerMsg + '\n\nThanks for playing! Now you know more about me. '+ guestName;
     console.log(answerMsg);
     alert(answerMsg)
-  } // if (msgValidation!=='')
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // This is the part of the Lab03
+    var myNumber, userNumber, attempts;
+
+    // asking to guess a number, giving 4 attempts to do it
+    myNumber=40;
+    attempts=0;
+    //userNumber=0;
+
+    console.log('myNumber ' + myNumber);
+
+    do 
+    {
+      attempts++;
+      userNumber = prompt('6. Guess which is my favorite number? (Tip: Is lower than 100)\n Attempt # ' + attempts + '/4');
+      
+
+      if (isNaN(userNumber))
+        {
+          alert('Please insert a number.');
+        }
+      else
+      {
+        if (myNumber==userNumber)
+          {
+            alert ('Wow! you are correct! ' + userNumber + ' is my favorite number! You got it at attempt # ' + attempts);
+          }
+        else // the guessed number is incorrect
+          {
+            if (userNumber>=51)  // switch DOES NOT SUPPORTS BOOLEANS !! therefore I will use if...
+            {
+              alert('No, that number is to high');
+              console.log('No, that number is to high: ' + userNumber);
+            }
+            else if ((userNumber<51) && (userNumber>=31))
+                {
+                  alert('You are close!');
+                  console.log('You are close!: ' + userNumber);
+                }
+                else
+                {
+                  alert('No, that number is to low');
+                  console.log('No, that number is to low: ' + userNumber);
+                }
+              if (attempts===4)
+              {
+                alert('Sorry! you did\'t guess, my favorite number is ' + myNumber);
+              }
+          }
+        
+        }  //if (isNaN(userNumber)){
+      
+
+      console.log('Attempt: ' + attempts + ' The user guessing name is: ' + userNumber);
+      
+    }
+    while ((attempts<4) && (myNumber!=userNumber));
+
+  } // if (msgValidation!==''). If the user responds the first 5 questions
 
   if (answerMsgDoc.valueOf() !== 'undefined') {
     document.write(answerMsgDoc);
