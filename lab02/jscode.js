@@ -12,14 +12,12 @@
   alert('Great to have you here ' + guestName + 
        '! \n\nLet\'s play a game! I will ask you 5 yes/no questions about me and at the end we will see how you correct you was :-D');
   
-  // asking 5 questions
-  userScore =0;
-  askSoccer = prompt('1. Do you think I love soccer?\nyes/no');
-  askCats = prompt('2. What do you thing I would preffer dog over cats?');
-  askTDK = prompt('3. Do you believe I enjoy TDK matches?');
-  askRun = prompt('4. Do you think I\'m a long distance runner?');
-  askKids = prompt('5. Do you believe I have 4 kids?');
-  
+ 
+  question1();
+  question2();
+  question3();
+  question4();
+  question5();
   // console login aswers
   console.log('User name ' + guestName);
   console.log('Do you think I love soccer? ' + askSoccer);
@@ -141,8 +139,8 @@
     do 
     {
       attempts++;
-      userNumber = prompt('6. Guess which is my favorite number? (Tip: Is lower than 100)\n Attempt # ' + attempts + '/4');
-      
+      // userNumber = prompt('6. Guess which is my favorite number? (Tip: Is lower than 100)\n Attempt # ' + attempts + '/4');
+      userNumber=question6(attempts);
       if (isNaN(userNumber))
         {
           alert('Please insert a number.');
@@ -198,7 +196,8 @@
     {
       attempts++;
       i=0;
-      userHobbies = prompt('7. Can you guess one of my favorite hobbie?\n Attempt # ' + attempts + '/6');
+      // userHobbies = prompt('7. Can you guess one of my favorite hobbie?\n Attempt # ' + attempts + '/6');
+      userHobbies = question7(attempts);
       
       // check if the value the user entered is in the array
       while (i < myHobbies.length) // i used a while because a for is not efficient is I already found the value
@@ -247,8 +246,42 @@
 
 
 
+  
 
+ 
+ 
 
+// This is strting point for merge
+function question1()
+{
+  askSoccer = prompt('1. Do you think I love soccer?\nyes/no');
+}
+function question2()
+{
+  askCats = prompt('2. What do you thing I would preffer dog over cats?');
+ 
+}
+function question3()
+{
+  askTDK = prompt('3. Do you believe I enjoy TDK matches?');
+}  
+function question4()
+{
+  askRun = prompt('4. Do you think I\'m a long distance runner?');
+  
 
-
-
+}
+function question5()
+{
+  askKids = prompt('5. Do you believe I have 4 kids?');
+}
+function question6(attempts)
+{
+  return prompt('6. Guess which is my favorite number? (Tip: Is lower than 100)\n Attempt # ' + attempts + '/4');
+      
+}
+function question7(attempts)
+{
+ return prompt('7. Can you guess one of my favorite hobbie?\n Attempt # ' + attempts + '/6');
+ 
+}
