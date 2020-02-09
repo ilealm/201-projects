@@ -12,23 +12,15 @@
   alert('Great to have you here ' + guestName + 
        '! \n\nLet\'s play a game! I will ask you 5 yes/no questions about me and at the end we will see how you correct you was :-D');
   
- 
+  userScore=0;
   question1();
   question2();
   question3();
   question4();
   question5();
-  // console login aswers
-  console.log('User name ' + guestName);
-  console.log('Do you think I love soccer? ' + askSoccer);
-  console.log('What do you thing I would preffer dog over cats? ' + askCats);
-  console.log('Do you believe I enjoy TDK matches? ' + askTDK);
-  console.log('Do you think I\'m a long distance runner? ' + askRun);
-  console.log('Do you believe I have 4 kids? ' + askKids);
   
   
   // validate the user's inputs
-  // TODO: convert this to a function
   msgValidation ='';
   
   
@@ -58,12 +50,11 @@
     msgValidation = msgValidation + "\n- Answer with yes or no to the 4 kids question."; 
   };
   
-  console.log(msgValidation);
+  
   
   if (msgValidation!==''){
     msgValidation = 'Oh no! there are some mistakes in the answers:\n' + msgValidation + '\n\nPlease reload the page and try again.'
     alert(msgValidation);
-    // TODO create a function for the next part of the questions
   }
   else{
     // alert the user answers
@@ -121,7 +112,6 @@
     }
   
     answerMsg = answerMsg + '\n\nThanks for playing! Now you know more about me. '+ guestName;
-    console.log(answerMsg);
     alert(answerMsg)
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -132,9 +122,6 @@
     // QUESTION 6. asking to guess a number, giving 4 attempts to do it
     myNumber=40;
     attempts=0;
-    //userNumber=0;
-
-    console.log('myNumber ' + myNumber);
 
     do 
     {
@@ -158,17 +145,14 @@
             if (userNumber>=51)  // switch DOES NOT SUPPORTS BOOLEANS !! therefore I will use if...
             {
               alert('No, that number is to high');
-              console.log('No, that number is to high: ' + userNumber);
             }
             else if ((userNumber<51) && (userNumber>=31))
                 {
                   alert('You are close!');
-                  console.log('You are close!: ' + userNumber);
                 }
                 else
                 {
                   alert('No, that number is to low');
-                  console.log('No, that number is to low: ' + userNumber);
                 }
               if (attempts===4)
               {
@@ -176,8 +160,7 @@
                 answerMsgDoc = answerMsgDoc + '<br>6. About my favorite number... sorry, <b>You didn\'t</b> guess it'; 
               }
           }
-        }  //if (isNaN(userNumber)){
-      console.log('Attempt: ' + attempts + ' The user guessing name is: ' + userNumber);
+        }  //if (isNaN(userNumber)
     }
     while ((attempts<4) && (myNumber!=userNumber));
   } // if (msgValidation!==''). If the user responds the first 5 questions
@@ -192,6 +175,15 @@
     myHobbies=['reading','yoga','movies','road trip'];
     myHobbiesList='';
 
+    // create hobbies list to show to the user at the end
+
+    for (i = 0; i < myHobbies.length; i++) 
+    {
+        myHobbiesList = myHobbiesList + myHobbies[i] + ', ' ; 
+    }            
+     myHobbiesList = myHobbiesList.slice(0,myHobbiesList.length-2);
+    
+
     do 
     {
       attempts++;
@@ -204,33 +196,21 @@
       {
         if (myHobbies[i] == userHobbies)
         {
-          alert('Yei! you found in attempt ' + attempts + '/6 one of my hobbies: ' + userHobbies.toUpperCase());
-          // TODO show here the hobbies also.
+          alert('Yei! you found in attempt ' + attempts + '/6 one of my hobbies: ' + userHobbies.toUpperCase() + '\nThese are all my hobbies: ' + myHobbiesList);
           hobbieFound = true;
           userScore++;
           answerMsgDoc = answerMsgDoc + '<br>7. About my hobbies <b>You find one:</b> ' + userHobbies +'!'; 
+          answerMsgDoc = answerMsgDoc + '<br>These are all my hobbies: ' + myHobbiesList;
         }
         i++;
       }
 
-      // tell the user my hobbies if he is out of attempts. This is the list to shoew ir
+     
       if (attempts===6)
       {
-        for (i = 0; i < myHobbies.length; i++) // to concatenate the hobbies lists.
-        {
-          if (i+1 === myHobbies.length)
-            {
-              myHobbiesList = myHobbiesList + myHobbies[i];  // to eliminate the last ' , '
-            }
-          else
-          {
-            myHobbiesList = myHobbiesList + myHobbies[i] + ', ' ; 
-          }            
-        }
-        alert ('Sorry! you didn\'t guessed. This are my hobbies:\n' + myHobbiesList); 
+        alert ('Sorry! you didn\'t guessed. These are my hobbies:\n' + myHobbiesList); 
         answerMsgDoc = answerMsgDoc + '<br>7. About my hobbies <b>You did\'t found one...</b> '; 
       }
-      console.log('Attempt: ' + attempts + ' The user guessing hobbie is: ' + userHobbies);
     }
     while ((attempts<6) && (!hobbieFound));
 
@@ -239,16 +219,10 @@
 
   if (answerMsgDoc.valueOf() !== 'undefined') {
     document.write(answerMsgDoc);
-    document.write('<br> <br><b>' + guestName + '</b> you guessed <b>' + userScore + '</b> questions correct!!!');
+    document.write('<br> <br><b>' + guestName + '</b> you guessed <b>' + userScore + '</b> correct questions !!!');
   }
  
 
-
-
-
-  
-
- 
  
 
 // This is strting point for merge
@@ -275,6 +249,7 @@ function question5()
 {
   askKids = prompt('5. Do you believe I have 4 kids?');
 }
+
 function question6(attempts)
 {
   return prompt('6. Guess which is my favorite number? (Tip: Is lower than 100)\n Attempt # ' + attempts + '/4');

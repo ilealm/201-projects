@@ -9,6 +9,10 @@ about the author as well._
 ## Work on Lab03
 _We added more questions and let the user guess something, added top 10 year goals ideas_
 
+## Lab 04
+forked version with pair partner
 
-forked version
+
+## Lab 05b
+Clean code and upgrade css.
 
